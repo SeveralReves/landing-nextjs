@@ -5,5 +5,8 @@ p, a, ul{
     font-family: "Merriweather Sans", sans-serif;
     font-optical-sizing: auto;
 }
+body{
+    background-color: #fafafa;
+}
 
 @import 'mixins', 'buttons', 'reset', 'container', 'header.module';

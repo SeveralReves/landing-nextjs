@@ -1,5 +1,7 @@
 .header{
     padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     &__container{
         display: flex;
         justify-content: space-between;

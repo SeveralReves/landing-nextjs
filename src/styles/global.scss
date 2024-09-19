@@ -9,4 +9,4 @@ body{
     background-color: #fafafa;
 }
 
-@import 'mixins', 'buttons', 'reset', 'container', 'header.module';
+@import  'reset', 'container', 'mixins', 'buttons', 'header.module', 'footer.module';

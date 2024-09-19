@@ -1,0 +1,48 @@
+.footer {
+  background-color: #fff;
+  padding: 60px 0;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  &__logo{
+    margin-right: auto;
+  }
+  &__top {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__rrss {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    &--link {
+      svg {
+        path {
+          transition: all 500ms ease-in-out;
+        }
+      }
+      @include hover {
+          svg {
+            path {
+              fill: #77b800;
+            }
+          }
+      }
+    }
+  }
+  &__bottom {
+    padding-top: 10px;
+    border-top: 1px solid #d2d2d2;
+    text-align: right;
+    p {
+      opacity: 0.6;
+      margin-bottom: 0;
+    }
+  }
+}

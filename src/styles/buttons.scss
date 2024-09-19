@@ -1,0 +1,32 @@
+.button {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  border-radius: 20px;
+  background: #d2d2d2;
+  display: flex;
+  padding: 10px 21px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  text-decoration: none;
+  transition: all 500ms ease-in-out;
+  &__primary {
+    @extend .button;
+    background-color: #2678d1;
+    @include hover{
+        background-color: #77b800;
+    }
+  }
+  &__secondary {
+    @extend .button;
+    background-color: #77b800;
+    @include hover{
+        background-color: #2678d1;
+    }
+  }
+}

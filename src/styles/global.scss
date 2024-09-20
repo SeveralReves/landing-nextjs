@@ -8,5 +8,7 @@ p, a, ul{
 body{
     background-color: #fafafa;
 }
-
-@import  'reset', 'container', 'mixins', 'buttons', 'header.module', 'footer.module';
+.main{
+    padding-top: 120px
+}
+@import  'reset', 'container', 'mixins', 'buttons', 'header.module', 'footer.module', 'contactForm.module';

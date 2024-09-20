@@ -44,7 +44,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="contact__form">
+    <section id="contact" className="contact__form">
       <Image
         src="/images/banner-form.png"
         alt="Banner Form"

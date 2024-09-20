@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "../styles/global.scss";
 
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -21,11 +22,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-          <main className="main">{children}</main>
+        <main className="main">{children}</main>
         <Footer />
       </body>
     </html>

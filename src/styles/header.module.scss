@@ -1,4 +1,9 @@
 .header{
+   position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
     padding: 20px 0;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
@@ -34,3 +39,52 @@
         }
     }
 }
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+  }
+  
+  .headroom--pinned {
+    transform: translateY(0%);
+  }
+  
+  
+  .headroom--unpinned {
+    transform: translateY(-200%);
+  }
+  
+  // @include mq($from: large) {
+  //   .header__menu, .header__mobile {
+  //     display: none;
+  //   }
+  // }
+  // @include mq($until: large) {
+  //   .headroom--not-top {
+  //     .header {
+  //       &__menu {
+  //         svg {
+  //           path {
+  //             fill: black;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .headroom--unpinned {
+  //     transform: translateY(0%);
+  //     background-color: #fff;
+  //     .header {
+  //       &__logo {
+  //         display: none;
+  //         &--secondary {
+  //           display: block;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   .header.header--default {
+  //     padding: 15px 0;
+  //   }
+  // }
+  

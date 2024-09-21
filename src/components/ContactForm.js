@@ -109,7 +109,9 @@ export default function ContactForm() {
                 <div className="contact__form--column">
                   <label className="contact__form--label">Mensaje</label>
                   <Field
-                    className="contact__form--textarea"
+                    className={`contact__form--textarea ${
+                      touched.message && errors.message ? "input--error" : ""
+                    }`}
                     as="textarea"
                     name="message"
                   />

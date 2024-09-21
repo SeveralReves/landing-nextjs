@@ -1,8 +1,10 @@
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/contactForm";
+import Hero from "@/components/hero";
 export default function Home() {
   return (
     <div>
+      <Hero></Hero>
       <ContactForm></ContactForm>
     </div>
   );

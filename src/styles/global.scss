@@ -9,6 +9,6 @@ body{
     background-color: #fafafa;
 }
 .main{
-    padding-top: 120px
+    padding-top: 100px
 }
-@import  'reset', 'container', 'mixins', 'buttons', 'header.module', 'footer.module', 'contactForm.module';
+@import  'reset', 'container', 'mixins', 'buttons', 'header.module', 'footer.module', 'contactForm.module', 'hero.module.scss';

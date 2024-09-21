@@ -28,7 +28,7 @@
   &--form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
   &--content {
     max-width: 500px;
@@ -44,7 +44,6 @@
   &--column {
     display: flex;
     flex-direction: column;
-    gap: 5px;
   }
   &--input, &--textarea {
     border: none;

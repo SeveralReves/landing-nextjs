@@ -78,7 +78,7 @@ export default function Header() {
               ))
             }
           </ul>
-          <a href="#" className="button__primary header__action">Obténlo ahora</a>
+          <a href="#contact" className="button__primary header__action">Obténlo ahora</a>
         </nav>
       </div>
     </header>

@@ -1,0 +1,44 @@
+.services {
+  padding: 60px 0;
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+  }
+  &__card {
+    $me: &;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all 500ms ease-in-out;
+    &--title {
+      transition: all 500ms ease-in-out;
+    }
+    &--text {
+      max-width: calc(100% - 160px);
+    }
+    &--image {
+      position: absolute;
+      bottom: 25px;
+      right: 0;
+      object-fit: cover;
+      transform: translateX(20px) scale(1);
+      transition: all 400ms;
+    }
+    @include hover {
+      background-color: #8bb5e02c;
+      box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      #{$me}--title {
+        color: #2678d1;
+      }
+      #{$me}--image {
+        transform: translateX(0px) scale(1.2);
+      }
+    }
+  }
+}

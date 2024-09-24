@@ -1,28 +1,35 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Headroom from "headroom.js";
 
 // components/Header.js
 export default function Header() {
-  const menu = [
+  const [menuActive, setMenuActive] = useState(false);
+
+  const handleClick = () => {
+    document.body.style.overflowY = menuActive ? "auto" : "hidden";
+    setMenuActive(!menuActive);
+  };
+
+  const menuContent = [
     {
-      url: '#home',
-      title: 'Inicio',
+      url: "#home",
+      title: "Inicio",
     },
     {
-      url: '#services',
-      title: 'Servicios',
+      url: "#services",
+      title: "Servicios",
     },
     {
-      url: '#testimonials',
-      title: 'Testimonios',
+      url: "#testimonials",
+      title: "Testimonios",
     },
     {
-      url: '#contact',
-      title: 'Contacto',
+      url: "#contact",
+      title: "Contacto",
     },
   ];
-  
+
   const initHeadroom = () => {
     const myElement = document.querySelector("header");
 
@@ -46,16 +53,17 @@ export default function Header() {
         const target = document.querySelector(anchor.getAttribute("href"));
         const targetPosition =
           target.getBoundingClientRect().top + window.pageYOffset;
-
         //Ajusta la posición de scroll en 50px hacia abajo
         window.scrollTo({
           top: targetPosition - 20, // Agrega 50px a la posición de la sección objetivo
           behavior: "smooth",
         });
+        document.body.style.overflowY = "auto";
+        setMenuActive(false);
       });
     });
   };
-  
+
   useEffect(() => {
     initScrollToHome();
     initHeadroom();
@@ -66,20 +74,28 @@ export default function Header() {
         <h1 className="header__title">
           <span>Fin</span>Pro
         </h1>
-        <nav className="header__nav">
+        <nav className={`header__nav  ${menuActive ? "is-active" : ""}`}>
           <ul className="header__ul">
-            {
-              menu.map((link,index)=>(
-                <li key={index} className="header__li">
-                  <a href={link.url} title={link.title} className="header__link">
-                    {link.title}
-                  </a>
-                </li>
-              ))
-            }
+            {menuContent.map((link, index) => (
+              <li key={index} className="header__li">
+                <a href={link.url} title={link.title} className="header__link">
+                  {link.title}
+                </a>
+              </li>
+            ))}
           </ul>
-          <a href="#contact" className="button__primary header__action">Obténlo ahora</a>
+          <a href="#contact" className="button__primary header__action">
+            Obténlo ahora
+          </a>
         </nav>
+        <button
+          onClick={handleClick}
+          className={`hamburger ${menuActive ? "is-active" : ""}`}
+        >
+          <div className="hamburger__layer hamburger__layer--top"></div>
+          <div className="hamburger__layer hamburger__layer--mid"></div>
+          <div className="hamburger__layer hamburger__layer--bottom"></div>
+        </button>
       </div>
     </header>
   );

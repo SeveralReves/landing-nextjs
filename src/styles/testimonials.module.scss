@@ -6,6 +6,9 @@
     gap: 30px;
     min-height: 400px;
     align-items: center;
+    @include md{
+      display: none;
+    }
   }
   &__card {
     $card: &;

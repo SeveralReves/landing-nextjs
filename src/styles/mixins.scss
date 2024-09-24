@@ -1,7 +1,18 @@
 @mixin hover {
-    @media (min-width: 1024px) {
-      &:hover {
-        @content;
-      }
+  @media (min-width: 1024px) {
+    &:hover {
+      @content;
     }
   }
+}
+
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: 767px) {
+      @content;
+  }
+}

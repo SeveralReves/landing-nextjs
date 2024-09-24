@@ -56,7 +56,7 @@ export default function Footer() {
             <a href="#" className="footer__bottom--link" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
             <a href="#" className="footer__bottom--link" target="_blank" rel="noopener noreferrer">Políticas de privacidad</a>
           </div>
-          <p>© 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+          <p className="footer__bottom--copyright">© 2024 Mi Sitio Web. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

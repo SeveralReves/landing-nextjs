@@ -23,6 +23,7 @@
     }
     &--image {
       display: flex;
+      object-fit: cover;
     }
     &--content {
       grid-area: 1/1/2/2;
@@ -36,14 +37,23 @@
       flex-direction: column;
       gap: 20px;
       align-items: center;
+      @include md {
+        padding: 20px;
+      }
     }
     &--title {
       color: #fff;
       font-size: 42px;
+      @include md {
+        font-size: 32px;
+      }
     }
     &--text {
       color: #fff;
       max-width: 500px;
+    }
+    &--button {
+      max-width: 80vw;
     }
     &--arrow {
       position: absolute;
@@ -55,16 +65,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      &:not(.disabled){
-        cursor: pointer;
-        @include hover{
-            &::after, &::before{
-                opacity: 1;
-            }
-          }
+      @include md {
+        display: none;
       }
-      &::before{
-        content: '';
+      &:not(.disabled) {
+        cursor: pointer;
+        @include hover {
+          &::after,
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+      &::before {
+        content: "";
         width: calc(100% + 15px);
         height: calc(100% + 15px);
         position: absolute;
@@ -77,8 +91,8 @@
         border: 1px solid #fff;
         transition: all 300ms ease-in-out;
       }
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         width: calc(100% + 40px);
         height: calc(100% + 40px);
         position: absolute;
@@ -91,7 +105,6 @@
         border: 1px solid #fff;
         transition: all 700ms ease-in-out;
       }
-      
     }
     &--prev {
       left: 30px;

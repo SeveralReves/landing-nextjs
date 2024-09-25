@@ -84,7 +84,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="button__primary header__action">
+          <a href="#contact" className="button__primary header__action" title="obtenlo ahora">
             Obténlo ahora
           </a>
         </nav>

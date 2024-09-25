@@ -27,6 +27,9 @@
     font-size: 64px;
     color: #fff;
     max-width: 600px;
+    @include lg{
+      font-size: 42px;
+    }
     @include md{
       text-align: center;
       font-size: 32px;
@@ -67,4 +70,10 @@
         border-color: #2678d1;
     }
   }
+}
+.success-message{
+  background-color: #46ba46;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }

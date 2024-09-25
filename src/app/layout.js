@@ -17,8 +17,9 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "FinPro | Tus metas más cerca",
-  description: "FinPro: tus metas más cerca",
+  title: "FinPro | Tus metas más cerca de ti",
+  description: "Te ayudamos a conseguir tu estabilidad financiera y cumplir tus objetivos. Consigue prestamos, apertura de cuentas, autos y mucho más",
+  keywords: "Finanzas personales, financiamiento, cuenta corriente"
 };
 
 export default function RootLayout({ children }) {

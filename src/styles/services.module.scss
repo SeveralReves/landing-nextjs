@@ -4,6 +4,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px 40px;
+    @include md{
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
   }
   &__card {
     $me: &;
@@ -15,11 +19,15 @@
     overflow: hidden;
     position: relative;
     transition: all 500ms ease-in-out;
+
     &--title {
       transition: all 500ms ease-in-out;
     }
     &--text {
       max-width: calc(100% - 160px);
+      @include lg{
+        max-width: 100%;
+      }
     }
     &--image {
       position: absolute;
@@ -28,6 +36,19 @@
       object-fit: cover;
       transform: translateX(20px) scale(1);
       transition: all 400ms;
+      @include lg{
+        display: none;
+      }
+    }
+    @include md{
+      background-color: #8bb5e02c;
+      box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+      #{$me}--title {
+        color: #2678d1;
+      }
+      #{$me}--image {
+        transform: translateX(0px) scale(1.2);
+      }
     }
     @include hover {
       background-color: #8bb5e02c;

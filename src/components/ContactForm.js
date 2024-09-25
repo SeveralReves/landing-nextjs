@@ -1,13 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ReCAPTCHA from "react-google-recaptcha";
 import Image from "next/image";
-// components/Form.js
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactForm() {
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const recaptchaRef = useRef(null); // Ref para el reCAPTCHA
 
   const validationSchema = Yup.object({
     fullName: Yup.string().required("Nombre completo es obligatorio"),
@@ -28,14 +30,47 @@ export default function ContactForm() {
       .required("Correo de la empresa es obligatorio"),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values, { resetForm }) => {
     if (!captchaVerified) {
-      alert("Por favor, verifica el reCAPTCHA");
+      toast.error("Por favor, verifica el reCAPTCHA");
       return;
     }
+    try {
+      const body = {
+        full_name: values.fullName,
+        email: values.email,
+        message: values.message,
+        company_address: values.companyAddress,
+        company_phone: values.companyPhone,
+        company_email: values.companyEmail,
+      };
+      const response = await fetch("http://127.0.0.1:8000/submit-form/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(body),
+      });
 
-    console.log(values);
-    alert("Formulario enviado correctamente");
+      const result = await response.json();
+      console.log("Success:", result);
+      if (result?.status) {
+        toast.success(result.message);
+        resetForm();
+        recaptchaRef.current.reset();
+        setCaptchaVerified(false);
+      } else {
+        toast.error(
+          "Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo."
+        );
+      }
+      // Puedes agregar un mensaje de éxito aquí
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error(
+        "Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo."
+      );
+    }
   };
 
   const onCaptchaChange = (value) => {
@@ -54,7 +89,9 @@ export default function ContactForm() {
         className="contact__form--background"
       ></Image>
       <div className="container contact__form--container">
-        <h2 className="contact__form--title">Cumple tus metas con nosotros</h2>
+        <h2 className="contact__form--title">
+          ¡Cumple tus metas con nosotros!
+        </h2>
         <div className="contact__form--content">
           <Formik
             initialValues={{
@@ -184,8 +221,7 @@ export default function ContactForm() {
 
                 {/* Google ReCAPTCHA */}
                 <ReCAPTCHA
-                  // ref={recaptchaRef}
-                  // size="invisible"
+                  ref={recaptchaRef}
                   sitekey="6LeoST8jAAAAAAZGHRgugTsM0I2mCAsS9hmvfUbq"
                   onChange={onCaptchaChange}
                 />
@@ -202,6 +238,7 @@ export default function ContactForm() {
           </Formik>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 }

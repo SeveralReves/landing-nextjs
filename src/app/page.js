@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ContactForm from "@/components/contactForm";
 import Hero from "@/components/hero";
 import Services from "@/components/services";

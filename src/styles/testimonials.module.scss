@@ -6,8 +6,13 @@
     gap: 30px;
     min-height: 400px;
     align-items: center;
-    @include md{
-      display: none;
+    @include lg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @include md {
+      display: flex;
+      flex-direction: column;
     }
   }
   &__card {
@@ -24,6 +29,9 @@
     transition: all 500ms ease-in-out;
     height: 100%;
     box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+    @include lg {
+      gap: 20px;
+    }
     &--star {
       display: flex;
       gap: 4px;
@@ -34,6 +42,9 @@
       max-height: 0;
       overflow: hidden;
       transition: all 500ms ease-in-out;
+      @include lg {
+        max-height: none;
+      }
     }
     &--image {
       position: absolute;
@@ -43,6 +54,11 @@
       transform: translate(-50%, -50%);
       border-radius: 50%;
       transition: all 500ms ease-in-out;
+      @include lg {
+        margin: 0;
+        position: initial;
+        transform: none;
+      }
     }
     @include hover {
       flex: 2;
@@ -58,14 +74,14 @@
         left: 57%;
       }
     }
-    &.adjacent{
-        height: 75%;
-    }
-    &.superadjacent{
-        height: 50%;
-    }
-    &.subadjacent{
-        height: 25%;
-    }
+    // &.adjacent {
+    //   height: 75%;
+    // }
+    // &.superadjacent {
+    //   height: 50%;
+    // }
+    // &.subadjacent {
+    //   height: 25%;
+    // }
   }
 }
